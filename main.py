@@ -1,12 +1,13 @@
+import os
+
+import chainlit as cl
 from dotenv import find_dotenv
 from dotenv import load_dotenv
-from llama_index.llms.google_genai import GoogleGenAI
+from langfuse import get_client
 from llama_index.core import Settings
-import os
-import chainlit as cl
+from llama_index.llms.google_genai import GoogleGenAI
 from loguru import logger
 from openinference.instrumentation.llama_index import LlamaIndexInstrumentor
-from langfuse import get_client
 
 
 @cl.on_chat_start
@@ -22,9 +23,7 @@ async def start():
     if langfuse.auth_check():
         logger.info("Langfuse client is authenticated and ready!")
     else:
-        logger.warning(
-            "Langfuse client authentication failed. Please check your credentials and host."
-        )
+        logger.warning("Langfuse client authentication failed. Please check your credentials and host.")
     LlamaIndexInstrumentor().instrument()
 
     # await cl.Message(
