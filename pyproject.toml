@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "chainlit>=2.6.8",
+    "fastmcp>=2.11.2",
     "langfuse>=3.2.3",
     "llama-index>=0.13.1",
     "llama-index-llms-google-genai>=0.3.0",
@@ -47,3 +48,6 @@ current_version = "0.1.0"
 tag = true
 commit = true
 pre_commit_hooks = ["uv lock", "git add uv.lock"]
+
+[dependency-groups]
+dev = []

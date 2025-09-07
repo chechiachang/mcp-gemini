@@ -10,6 +10,9 @@ fix:
 type:
 	uv run mypy --install-types --non-interactive .
 
+mcp:
+	uv run fastmcp run --server-spec mcp.json
+
 #test:
 #	uv run pytest -v -s --cov=src tests
 

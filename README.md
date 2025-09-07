@@ -30,13 +30,6 @@ GOOGLE_CLOUD_PROJECT="your-project-id"
 GOOGLE_CLOUD_LOCATION="us-central1"
 ```
 
-(Optional) Firecrawl Configuration
-
-```
-# Firecrawl Configuration
-FIRECRAWL_API_KEY=
-```
-
 (Optional) Langfuse Configuration for tracing
 
 ```
@@ -46,7 +39,23 @@ LANGFUSE_SECRET_KEY="sk-..."
 LANGFUSE_HOST="..."
 ```
 
+##### MCP Configuration
+
+(Optional) Firecrawl Configuration
+
+```
+export FIRECRAWL_API_KEY=
+```
+
 ### Run
+
+MCP servers
+
+```bash
+uv run fastmcp run --help --server-spec mcp.json
+```
+
+Chainlit server
 
 ```bash
 uv run chainlit run main.py

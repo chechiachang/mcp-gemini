@@ -9,7 +9,6 @@ from llama_index.llms.google_genai import GoogleGenAI
 from loguru import logger
 from openinference.instrumentation.llama_index import LlamaIndexInstrumentor
 
-
 @cl.on_chat_start
 async def start():
     load_dotenv(find_dotenv(), override=True)
@@ -26,9 +25,9 @@ async def start():
         logger.warning("Langfuse client authentication failed. Please check your credentials and host.")
     LlamaIndexInstrumentor().instrument()
 
-    # await cl.Message(
-    #    author="Assistant", content="Hello! Im an AI assistant. How may I help you?"
-    # ).send()
+    await cl.Message(
+       author="Assistant", content="Hello! Im an AI assistant. How may I help you?"
+    ).send()
 
 
 @cl.on_message
